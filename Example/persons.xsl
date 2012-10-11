@@ -18,8 +18,15 @@
           </tr>
 
           <xsl:for-each select="persons">
+            <xsl:sort select="name" order="ascending" />
+            <xsl:sort select="first-name" order="ascending" />
+
             <tr>
-              <td><xsl:value-of select="firstname" /></td>
+            <xsl:if test="(name = 'admin' or name = 'Admin')">
+              <xsl:attribute name="style">background-color:yellow</xsl:attribute>
+            </xsl:if>
+
+            <td><xsl:value-of select="first-name" /></td>
               <td><xsl:value-of select="name" /></td>
               <td><xsl:value-of select="php:function('PH7\Framework\Layout\Tpl\Engine\PHXSLT\PHXSLT::escape', string(description), 1)" /></td>
             </tr>

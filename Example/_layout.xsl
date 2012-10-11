@@ -29,9 +29,9 @@
         <footer>
           <p>Powered By <strong>
               <a>
-                  <xsl:attribute name="href"><xsl:value-of select="$copyrightlink" /></xsl:attribute>
-                  <xsl:attribute name="title"><xsl:value-of select="$copyrighttitlelink" /></xsl:attribute>
-                  <xsl:value-of select="$copyrighttitlelink" />
+                  <xsl:attribute name="href"><xsl:value-of select="$copyright-link" /></xsl:attribute>
+                  <xsl:attribute name="title"><xsl:value-of select="$copyright-title-link" /></xsl:attribute>
+                  <xsl:value-of select="$copyright-title-link" />
               </a>
               </strong> &#169; 2012 - <xsl:value-of select="php:function('date', 'Y')" />. &#160; &#8226; &#160; This website is valid <a href="http://html5.org"><abbr title="HyperText Markup Language 5">HTML5</abbr></a></p>
         </footer>

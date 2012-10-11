@@ -15,7 +15,14 @@ class PHXSLT
 {
     const ROOT_NAMESPACE = 'template';
 
-    private $_oXml, $_oXsl, $_oXslProcessor, $_sOutput, $_oRoot, $_sFile;
+    private
+    $_oXml,
+    $_oXsl,
+    $_oXslProcessor,
+    $_sOutput,
+    $_oRoot,
+    $_sFile,
+    $_bPhpFunc = true;
 
     /**
      * Constructor.
@@ -37,6 +44,19 @@ class PHXSLT
         $this->_oRoot = $this->_oXml->createElement(STATIC::ROOT_NAMESPACE);
         // Insertion of this node in the tree view of the XML file
         $this->_oXml->appendChild($this->_oRoot);
+    }
+
+    /**
+     * Enable or disable the PHP functions in the XSTL template.
+     *
+     * @param boolean $bEnable Default TRUE
+     * @return object this
+     */
+    public function enablePhpFunctions($bEnable = true)
+    {
+        $this->_bPhpFunc = (bool) $bEnable;
+
+        return $this;
     }
 
     /**
@@ -122,7 +142,7 @@ class PHXSLT
         if(!@$this->_oXsl->load($this->_sFile)) {
             throw new Exception('While loading file: "' . $this->escape($this->_sFile) . '"');
         } else {
-            $this->_oXslProcessor->registerPHPFunctions();
+            if($this->_bPhpFunc) $this->_oXslProcessor->registerPHPFunctions();
             $this->_oXslProcessor->importStylesheet($this->_oXsl);
         }
 

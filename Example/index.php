@@ -30,8 +30,8 @@ try
         'info' => array(
             'lang' => 'en-US',
             'heading1' => 'Simple XSLT PHP Engine',
-            'copyrightlink' => 'http://ph-7.github.com',
-            'copyrighttitlelink' => 'pH7',
+            'copyright-link' => 'http://ph-7.github.com',
+            'copyright-title-link' => 'pH7',
         )
     );
 
@@ -39,11 +39,12 @@ try
         $oXslTpl->setParam($aStr);
 
     $aPersons = array(
-        1 => array('name' => 'Gayen', 'firstname' => 'Mark', 'description' => 'What are you doing tonight?, I go out with friends ;-)'),
-        2 => array('name' => 'Roksen', 'firstname' => 'Katin', 'description' => 'Hi, I\'m a nice person, and you?'),
-        3 => array('name' => 'Gansen', 'firstname' => 'Matthew', 'description' => 'Looking for nothing ...'),
-        4 => array('name' => 'Korsan', 'firstname' => 'Alexander', 'description' => 'I love spaghetti!'),
-        5 => array('name' => 'Frey', 'firstname' => 'Matt', 'description' => 'It seems that tomorrow I would be happy ...')
+        1 => array('name' => 'Gayen', 'first-name' => 'Mark', 'description' => 'What are you doing tonight?, I go out with friends ;-)'),
+        2 => array('name' => 'Roksen', 'first-name' => 'Katin', 'description' => 'Hi, I\'m a nice person, and you?'),
+        3 => array('name' => 'Gansen', 'first-name' => 'Matthew', 'description' => 'Looking for nothing ...'),
+        4 => array('name' => 'Korsan', 'first-name' => 'Alexander', 'description' => 'I love spaghetti!'),
+        5 => array('name' => 'Frey', 'first-name' => 'Matt', 'description' => 'It seems that tomorrow I would be happy ...'),
+        6 => array('name' => 'Admin', 'first-name' => 'Gayen', 'description' => 'I\'m the king ... :D')
     );
 
     foreach($aPersons as $aPerson)
