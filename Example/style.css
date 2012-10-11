@@ -1,0 +1,59 @@
+
+/***** Global *****/
+
+body {
+  font-family: HelveticaNeue,Helvetica,Arial,Verdana,sans-serif;
+  font-size: 12px;
+  color: #333;
+  background: #eee;
+  margin-top: 20px;
+}
+
+.center, #container {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+table {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+header {
+  text-shadow: 0 .9em #ccc,0 0 8px rgba(255,255,255,.6);
+  margin-bottom: 40px;
+}
+
+footer {
+  font-size: 11px;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  padding: 1px 10px;
+  clear: both;
+  border-top: 1px dotted #999;
+}
+
+abbr {
+  border-bottom: 1px dotted #666;
+}
+
+/***** Links *****/
+
+a {
+  color: #08c;
+  outline-style: none;
+  cursor: pointer;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  text-decoration: underline;
+  text-shadow: 0 0 5px #fff,0 0 8px rgba(255,255,255,.6);
+}
