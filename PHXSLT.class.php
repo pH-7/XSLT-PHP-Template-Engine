@@ -9,6 +9,7 @@
  * @package          PH7 / Framework / Layout / Tpl / Engine / PHXSLT
  * @version          1.1
  */
+
 namespace PH7\Framework\Layout\Tpl\Engine\PHXSLT;
 
 class PHXSLT
@@ -41,7 +42,7 @@ class PHXSLT
         $this->load();
 
          // Creation of the XML root node mandatory
-        $this->_oRoot = $this->_oXml->createElement(STATIC::ROOT_NAMESPACE);
+        $this->_oRoot = $this->_oXml->createElement(static::ROOT_NAMESPACE);
         // Insertion of this node in the tree view of the XML file
         $this->_oXml->appendChild($this->_oRoot);
     }
@@ -135,12 +136,13 @@ class PHXSLT
      * Load XSL file.
      *
      * @return object this
+     * @internal We use realpath function because forward slashes can cause significant performance degradation on Windows OS.
      * @throws \PH7\Framework\Layout\Tpl\Engine\PHXSLT\Exception If the XSL file does not exist.
      */
     protected function load()
     {
-        if(!@$this->_oXsl->load($this->_sFile)) {
-            throw new Exception('While loading file: "' . $this->escape($this->_sFile) . '"');
+        if(!@$this->_oXsl->load(realpath($this->_sFile))) {
+            throw new Exception('While loading file: "' . static::escape($this->_sFile) . '"');
         } else {
             if($this->_bPhpFunc) $this->_oXslProcessor->registerPHPFunctions();
             $this->_oXslProcessor->importStylesheet($this->_oXsl);
