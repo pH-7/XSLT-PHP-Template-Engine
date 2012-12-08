@@ -136,13 +136,15 @@ class PHXSLT
      * Load XSL file.
      *
      * @return object this
-     * @internal We use realpath function because forward slashes can cause significant performance degradation on Windows OS.
+     * @internal We use realpath() function because forward slashes can cause significant performance degradation on Windows OS.
      * @throws \PH7\Framework\Layout\Tpl\Engine\PHXSLT\Exception If the XSL file does not exist.
      */
     protected function load()
     {
-        if(!@$this->_oXsl->load(realpath($this->_sFile))) {
-            throw new Exception('While loading file: "' . static::escape($this->_sFile) . '"');
+        $sPath = realpath($this->_sFile);
+
+        if(!@$this->_oXsl->load($sPath)) {
+            throw new Exception('While loading file: "' . static::escape($sPath) . '"');
         } else {
             if($this->_bPhpFunc) $this->_oXslProcessor->registerPHPFunctions();
             $this->_oXslProcessor->importStylesheet($this->_oXsl);
